@@ -234,6 +234,26 @@ sample_text = "ImportanceOfRegularExpressionsInPython"
 print(re.findall('[A-Z][^A-Z]*', sample_text))
 
 
+# In[241]:
+
+
+import re
+def num_spaces(sample_text):
+  return re.sub(r"(\w)([1-9])", r"\1 \2", sample_text)
+
+print(num_spaces("RegularExpression1IsAn2ImportantTopic3InPython"))
+
+
+# In[242]:
+
+
+import re
+def cap_word_spaces(sample_text):
+  return re.sub(r"(\w)([A-Z])", r"\1 \2", sample_text)
+
+print(cap_word_spaces("RegularExpression1IsAn2ImportantTopic3InPython"))
+
+
 # In[ ]:
 
 
