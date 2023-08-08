@@ -1,44 +1,54 @@
-Ans 1:
+Ans1:
 
 import re
 sample_text= "I am Chaitanya,This is re assignment."
 print(re.sub("[ ,.]", ":", sample_text))
 
-Ans 2:
+Ans2:
 
 import re
 sample_text= "I am Chaitanya, this is an extra RE assignment."
 aewordlist = re.findall(r"\b[ae]\w+",sample_text)
 print(aewordlist)
 
-Ans 3:
+Ans3:
 
 import re
 sample_text = "I am Chaitanya, this is an extra RE assignment."
 str_pattern= re.compile(r"\b\w{4,}\b")
 print(str_pattern.findall(sample_text))
 
-Ans 4:
+Ans4:
 
 import re
 sample_text = "I am Chaitanya, this is an extra REX assignment."
 str_pattern= re.compile(r"\b\w{3,5}\b")
 print(str_pattern.findall(sample_text))
 
-Ans 5:
+Ans5:
 
 import re
 sample_list= ["example(.com)","hr@fliprobo(.com)","github(.com)","Hello(Data Science World)","Data (Scientist)"]
 sample_str = ' '.join(sample_list)
 print(re.sub("[()]", "", sample_str))
 
-Ans7
+Ans6:
+
+import re
+
+with open(r"C:\Users\chait\Downloads\Test1.txt", "rt") as f:
+    input = f.read()
+    print(input)
+    output = re.sub(r" ?\([^)]+\)", "",input)
+    print(output)
+
+Ans7:
 
 import re
 sample_text = "ImportanceOfRegularExpressionsInPython"
 print(re.findall('[A-Z][^A-Z]*', sample_text))
 
-Ans8
+Ans8:
 
 import re
 def num_spaces(sample_text):
@@ -46,7 +56,7 @@ def num_spaces(sample_text):
 
 print(num_spaces("RegularExpression1IsAn2ImportantTopic3InPython"))
 
-Ans9
+Ans9:
 
 import re
 def cap_word_spaces(sample_text):
@@ -54,7 +64,17 @@ def cap_word_spaces(sample_text):
 
 print(cap_word_spaces("RegularExpression1IsAn2ImportantTopic3InPython"))
 
-Ans 11:
+
+Ans10:
+
+import re
+with open(r"C:\Users\chait\Downloads\Test2.txt", "rt") as f:
+    input = f.read()
+    output = re.findall('\S+@\S+',input) 
+    print(output)
+
+
+Ans11:
 
 import re
 sample_text = "I_am_Chaitanya_age_75"
@@ -62,7 +82,7 @@ str_pat = '^[a-zA-Z0-9_]*$'
 matched_str = re.search(str_pat,sample_text)
 print(matched_str)
 
-Ans12
+Ans12:
 
 import re
 def match_my_str(string):
@@ -74,14 +94,18 @@ def match_my_str(string):
 print(match_my_str('0 is important number in mathematics'))
 print(match_my_str('This is 5 star hotel'))
 
-Ans13
+Ans13:
 
 import re
 ip = "10.02.035.132"
 rem_string = re.sub('\.[0]*', '.', ip)
 print(rem_string)
 
-Ans15
+Ans14:
+
+
+
+Ans15:
 
 import re
 animals = ['fox','dog','horse']
@@ -174,7 +198,15 @@ str_pat = '[A-Z]+[a-z]+$'
 matched_str = re.search(str_pat,sample_text)
 print(matched_str)
 
-Ans26
+Ans25:
+
+import re
+def duplicate_words(sample_text):
+  return re.sub(r'\b(\w+)\b(?:\s+\1)+', r'\1',sample_text)
+
+print(duplicate_words("Hello hello world world"))
+
+Ans26:
 
 import re
 regex_expression = '[a-zA-z0-9]$'
@@ -187,11 +219,35 @@ def check_string(my_string):
         
 print(check_string('Marks obtained is 70%'))
 
-
-Ans29
+Ans27:
 
 import re
-file = open(r"c:\desktop\dates.txt",'r')
-sample_text = file.read()
-date_matches = re.findall(r'(\d+/\d+/\d+)',sample_text)
-print(date_matches)
+sample_text ="""RT @kapil_kausik: #Doltiwal I mean #xyzabc is "hurt" by #Demonetization as the same has rendered USELESS <ed><U+00A0><U+00BD><ed><U+00B1><U+0089> "acquired funds" No wo"""
+output=re.findall(r'#\w+',sample_text)
+print(output)
+
+Ans28:
+
+import re
+sample_text = "@Jags123456 Bharat band on 28??<ed><U+00A0><U+00BD><ed><U+00B8><U+0082>Those who  are protesting #demonetization  are all different party leaders"
+replaced_text = re.sub(r'[^A-Za-z0-9]+', " ",sample_text)
+print(replaced_text)
+
+
+Ans29:
+
+import re
+with open(r"C:\Users\chait\Downloads\Test4.txt", "rt") as f:
+    input = f.read()
+    output = re.findall(r'\d{2}[/-]\d{2}[/-]\d{4}',input)
+print(output)
+
+Ans30:
+
+import re
+def remove_words(sample_text):
+    str_pattern = re.compile(r'\W*\b\w{2,4}\b')
+    rem_words =str_pattern.sub('',sample_text)
+    return rem_words
+
+print(remove_words("The following example creates an ArrayList with a capacity of 50 elements. 4 elements are then added to the ArrayList and the ArrayList is trimmed accordingly."))
